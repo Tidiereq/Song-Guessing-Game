@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Song Guessing Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>Song Guessing Game</h1>
+      <p>Zgadnij tytuł i wykonawcę po krótkim fragmencie.</p>
+    </header>
+
+    <section class="controls">
+      <div class="row">
+      </div>
+      <div class="row">
+        <div class="time-info">
+          Maks. czas słuchania: <span id="maxTime">0.5</span>s
+        </div>
+        <div class="status" id="status">Ładowanie piosenki…</div>
+        <div class="genre">
+          <label for="genreSelect">Kategoria:</label>
+          <select id="genreSelect">
+            <option value="all">Wszystko</option>
+            <option value="pop">Pop</option>
+            <option value="hiphop">Hip-Hop/Rap</option>
+            <option value="rock">Rock</option>
+            <option value="dance">Dance</option>
+            <option value="electronic">Electronic</option>
+            <option value="alternative">Alternative</option>
+            <option value="rnb">R&B/Soul</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="timeline">
+      <div class="timeline-bar" id="timelineBar">
+        <div class="timeline-unlocked" id="timelineUnlocked"></div>
+        <div class="timeline-playhead" id="timelinePlayhead"></div>
+        <div class="timeline-ticks" id="timelineTicks"></div>
+      </div>
+      <div class="timeline-pointer" id="timelinePointer">
+        <span id="timelineSeconds">0.5 seconds</span>
+        <span class="triangle">▼</span>
+      </div>
+      <div class="timeline-actions">
+        <button id="skipBtn" class="skip-btn">Pomiń +5s</button>
+      </div>
+    </section>
+
+    <section class="player">
+      <button id="bigPlayBtn" class="circle success" aria-label="Odtwórz/Pauza"></button>
+      <div class="play-info">
+        <div id="timeDisplay">00:00 / 00:30</div>
+      </div>
+    </section>
+
+    <section class="guess">
+      <input id="guessInput" type="text" placeholder="Wpisz tytuł i/lub wykonawcę">
+      <div id="suggestions" class="suggestions"></div>
+      <button id="guessBtn" class="success">Zgadnij</button>
+      <button id="revealBtn">Pokaż odpowiedź</button>
+      <button id="nextBtn">Nowa piosenka</button>
+    </section>
+
+    <section class="result" id="result">
+      <div class="cover" id="cover"></div>
+      <div class="meta">
+        <div id="title"></div>
+        <div id="artist"></div>
+        <a id="link" target="_blank" rel="noopener">Otwórz w Apple Music</a>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal-overlay" id="revealModal" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-cover" id="modalCover"></div>
+      <div class="modal-text">
+        <div class="modal-title" id="modalTitle"></div>
+        <div class="modal-artist" id="modalArtist"></div>
+        <div class="modal-actions">
+          <a id="modalLink" class="modal-link" target="_blank" rel="noopener">Otwórz w Apple Music</a>
+          <button id="modalNext" class="modal-next">Nowa piosenka</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
